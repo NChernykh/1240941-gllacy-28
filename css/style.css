@@ -69,6 +69,12 @@ img {
   list-style: none;
 }
 
+.link:hover,
+.link:focus,
+.link:active {
+  color: #e84d37;
+}
+
 .popup {
   display: block;
   position: absolute;
@@ -457,12 +463,6 @@ img {
   font-size: 24px;
   line-height: 30px;
   text-decoration: underline;
-}
-
-.blog__link:hover,
-.blog__link:focus,
-.blog__lonk:active {
-  color: #e84d37;
 }
 
 .mailing {
