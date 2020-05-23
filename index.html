@@ -6,7 +6,7 @@
   <title>HTML Academy: Глейси</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="css/normalize.css" rel="stylesheet">
- <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -22,25 +22,17 @@
           <ul class="nav__list list">
             <li class="nav__item">
               <a class="nav__link" href="#">Каталог</a>
-              <!--
-              <ul class="sub-nav__list list">
-                <li class="sub-nav__item">
-                  <strong class="sub-nav__menu">Новинки</strong>
-                </li>
-                <li class="sub-nav__item">
-                  <a href="" class="sub-nav__link">Сливочное</a>
-                </li>
-                <li class="sub-nav__item">
-                  <a href="" class="sub-nav__link sub-nav__link--current">Щербет</a>
-                </li>
-                <li class="sub-nav__item">
-                  <a href="" class="sub-nav__link">Фруктовый лед</a>
-                </li>
-                <li class="sub-nav__item">
-                  <a href="" class="sub-nav__link">Малорин</a>
-                </li>
-              </ul>
-            -->
+              <div class="sub-nav popup">
+                <h2 class="sub-nav__title">
+                  <strong>Новинки</strong>
+                </h2>
+                <div class="sub-nav__items">
+                  <a class="sub-nav__link" href="catalog.html">Сливочное</a>
+                  <a class="sub-nav__link sub-nav__link--current">Щербеты</a>
+                  <a class="sub-nav__link" href="">Фруктовый лед</a>
+                  <a class="sub-nav__link" href="">Малорин</a>
+                </div>
+              </div>
             </li>
             <li class="nav__item">
               <a class="nav__link" href="#">Доставка и оплата</a>
@@ -52,37 +44,34 @@
         </nav>
         <div class="user-nav">
           <div class="user-nav__wrapper">
-            <a class="user-nav__link search__link" href=" ">
+            <a class="user-nav__link search" href=" ">
               <span class="visually-hidden">Поиск</span>
             </a>
-            <!--
             <form class="form search-form popup" action="https://echo.htmlacademy.ru" method="get">
-              <input class="search-form__input" type="search" name="search" placeholder="крем-брюле">
-              <button class="btn search-form__button" type="submit"></button>
+              <label class="visually-hidden" for="search">Форма поиска</label>
+              <input class="search-form__input" id="search" type="search" name="search" placeholder="крем-брюле">
+              <button class="btn search-form__button" type="submit" aria-label="Найти"></button>
             </form>
-            -->
-            <a class="user-nav__link login__link" href=" ">Вход</a>
-            <!--
-            <section class="popup__login popup">
-              <h2 class="popup__title visually-hidden">Личный кабинет</h2>
-              <form class="form login-form" action="https://echo.htmlacademy.ru" method="post">
-                <p class="login-form__item">
-                  <input class="login-form__input" type="email" name="e-mail" placeholder="email@example.com">
-                </p>
-                <p class="login-form__item">
-                  <input class="login-form__input" type="password" name="password" placeholder="......">
-                </p>
-                <p class="login-form__half">
-                  <button class="btn login-button" type="submit">Войти</button>
-                </p>
-                <p class="login-form__half">
-                  <a class="link login-form__forgot-password" href="#">Забыли пароль?</a>
-                  <a class="link login-form__registration" href="#">Новая регистрация</a>
-                </p>
-              </form>
-            </section>
-          -->
-            <a class="user-nav__link cart__link" href=" ">Пусто
+            <a class="user-nav__link login" href=" ">Вход</a>
+            <form class="form login-form popup" action="https://echo.htmlacademy.ru" method="post">
+              <h2 class="visually-hidden">Личный кабинет</h2>
+              <p class="login-form__item">
+                <label class="visually-hidden" for="e-mail">Введите email</label>
+                <input class="login-form__input" id="e-mail" type="email" name="e-mail" placeholder="email@example.com" required>
+              </p>
+              <p class="login-form__item">
+                <label class="visually-hidden" for="password">Введите пароль</label>
+                <input class="login-form__input" id="password" type="password" name="password" placeholder="......" required>
+              </p>
+              <p class="login-form__half">
+                <button class="btn login-button" type="submit">Войти</button>
+              </p>
+              <p class="login-form__half">
+                <a class="link login-form__forgot-password" href="">Забыли пароль?</a>
+                <a class="link login-form__registration" href="">Новая регистрация</a>
+              </p>
+            </form>
+            <a class="user-nav__link cart-link" href=" ">Пусто
             </a>
           </div>
         </div>
@@ -93,7 +82,7 @@
       </div>
     </div>
   </header>
-      <!--
+<!--
       <section class="slider">
         <div class="slider__slides">
           <div class="slide">
@@ -120,12 +109,12 @@
     -->
   <main class="main">
     <div class="container">
-      <h1 class="main__title visually-hidden">Магазин мороженного Глейси</h1>
+      <h1 class="visually-hidden">Магазин мороженого Глейси</h1>
       <section class="banner">
-        <h2 class="products-catalog__title visually-hidden">Акции</h2>
-        <article class="banner__item promo--bg--left">
+        <h2 class="visually-hidden">Акции</h2>
+        <article class="banner__item promo promo--bg--left">
           <h3 class="promo__title">Малинка даром!</h3>
-          <p class="promo__text">При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку маринового варенья бесплатно.</p>
+          <p class="promo__text">При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.</p>
           <a class="btn promo__button" href="">Хочу варенье!</a>
         </article>
         <article class="banner__item promo--bg--right">
@@ -139,28 +128,28 @@
         <div class="products-catalog__cards">
           <article class="product product--hit">
             <a class="product__link" href="#">
-              <img class="product__img" src="img/orange-ic.png" alt="Мороженное с апельсиновым джемом" width="267" height="267">
+              <img class="product__img" src="img/orange-ic.jpg" alt="Мороженное с апельсиновым джемом" width="267" height="267">
               <h3 class="product__title">Сливочное с апельсиновым джемом и цитрусовой стружкой</h3>
             </a>
             <p class="product__cost">310 ₽<span class="product__weight">/кг</span></p>
           </article>
           <article class="product product--hit">
             <a href="" class="product__link">
-              <img class="product__img" src="img/coffee-ic.png" alt="Кофейное мороженное с шоколадной стружкой" width="267" height="267">
+              <img class="product__img" src="img/coffee-ic.jpg" alt="Кофейное мороженное с шоколадной стружкой" width="267" height="267">
               <h3 class="product__title">Сливочно-кофейное с кусочками шоколада</h3>
             </a>
             <p class="product__cost">380 ₽<span class="product__weight">/кг</span></p>
           </article>
           <article class="product product--hit">
             <a href="" class="product__link">
-              <img class="product__img" src="img/strawberry-ic.png" alt="Клубничное мороженное с сердечками из белого шоколада" width="267" height="267">
+              <img class="product__img" src="img/strawberry-ic.jpg" alt="Клубничное мороженное с сердечками из белого шоколада" width="267" height="267">
               <h3 class="product__title">Сливочно-клубничное с присыпкой из белого шоколада</h3>
             </a>
             <p class="product__cost">355 ₽<span class="product__weight">/кг</span></p>
           </article>
           <article class="product product--hit">
             <a href="" class="product__link">
-              <img class="product__img" src="img/caramel-ic.png" alt="Крем-брюле с карамельное подливкой" width="267" height="267">
+              <img class="product__img" src="img/caramel-ic.jpg" alt="Крем-брюле с карамельное подливкой" width="267" height="267">
               <h3 class="product__title">Сливочное крем-брюле с карамельной подливкой</h3>
             </a>
             <p class="product__cost">415 ₽<span class="product__weight">/кг</span></p>
@@ -176,7 +165,7 @@
           </li>
           <li class="about__item">Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.
           </li>
-          <li class="about__item">Доставка нашего мороженного до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет cохранить превосходный вкус.
+          <li class="about__item">Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет cохранить превосходный вкус.
           </li>
         </ul>
       </section>
@@ -197,10 +186,10 @@
         </div>
       </section>
       <section class="map">
-        <h2 class="map__title visually-hidden">Расположение магазина</h2>
+        <h2 class="map__title visually-hidden">Адрес магазина Глейси</h2>
         <iframe class="map__link" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872586862!2d30.320853350878192!3d59.93871648178723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca145cc1%3A0x42b32648d8238007!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LzgsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTExODY!5e0!3m2!1sru!2sru!4v1589553581861!5m2!1sru!2sru" width="1200" height="430" style="border:0;" allowfullscreen="" tabindex="0"></iframe>
         <p class="map__img">
-          <img src="img/map.png" width="1200" height="430" alt="ул. Большая Конюшенная, 19/8, Санкт-Петербург">
+          <img src="img/map.jpg" width="1200" height="430" alt="ул. Большая Конюшенная, 19/8, Санкт-Петербург">
         </p>
         <article class="contacts">
           <h2 class="contacts__title visually-hidden">Контактная инфрмация</h2>
@@ -219,19 +208,13 @@
       <div class="footer__wrapper">
         <section class="footer__item social">
           <h2 class="social__title visually-hidden">Социальные сети</h2>
-          <a href="" class="social__link facebook">
-            <!--как правильно social__link_facebook или можно просто facebook-->
-            <span class="visually-hidden">Фейсбук</span>
-            <!-- visually-hidden или font-size: 0?-->
+          <a href="" class="social__link facebook"><span class="visually-hidden">Фейсбук</span>
           </a>
-          <a href="" class="social__link vkontakte">
-            <span class="visually-hidden">Вконтакте</span>
+          <a href="" class="social__link vkontakte"><span class="visually-hidden">Вконтакте</span>
           </a>
-          <a href="" class="social__link instagram">
-            <span class="visually-hidden">Инстаграм</span>
+          <a href="" class="social__link instagram"><span class="visually-hidden">Инстаграм</span>
           </a>
-          <a href="" class="social__link twitter">
-            <span class="visually-hidden">Твиттер</span>
+          <a href="" class="social__link twitter"><span class="visually-hidden">Твиттер</span>
           </a>
         </section>
         <section class="footer__item documents">
@@ -250,8 +233,7 @@
           </a>
         </section>
         <div class="footer__item copyright">
-          <a class="copyright__logo-link" href="https://htmlacademy.ru/intensive/htmlcss">
-            <span class="visually-hidden">Логотип HTML Академии</span>
+          <a class="copyright__logo-link" href="https://htmlacademy.ru/intensive/htmlcss" aria-label="Перейти на HTML Академию">
           </a>
           <p class="copyright__text">Сделано в <a class="copyright__link" href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a> &copy; 2019
           </p>
@@ -261,19 +243,22 @@
   </footer>
   <section class="feedback">
     <h2 class="visually-hidden">Обратная связь</h2>
-    <p class="feedback__text">Мы обязательно вам ответим!</p>
     <form class="form feedback-form" action="https://echo.htmlacademy.ru" method="post">
+      <p class="feedback__text">Мы обязательно вам ответим!</p>
       <p class="feedback-form__item">
-        <input class="feedback-form__input" type="text" name="name" placeholder="Имя Фамилия">
+        <label class="visually-hidden" for="name">Введите имя</label>
+        <input class="feedback-form__input" id="name" type="text" name="name" placeholder="Имя Фамилия">
       </p>
       <p class="feedback-form__item">
+        <label class="visually-hidden" for="e-mail">Введите email</label>
         <input class="feedback-form__input" type="email" name="email" placeholder="email@example.com">
       </p>
       <p class="feedback-form__item">
-        <textarea class="feedback-form__comment" name="comment" cols="30" rows="10" placeholder="В свободной форме"></textarea>
+        <label class="visually-hidden" for="comment">Введите комментарий</label>
+        <textarea class="feedback-form__comment" id="comment" name="comment" cols="30" rows="10" placeholder="В свободной форме"></textarea>
       </p>
       <p class="feedback-form__item">
-        <button class="btn feedback-form__button">Отправить</button>
+        <button class="btn feedback-form__button" type="submit">Отправить</button>
       </p>
     </form>
   </section>

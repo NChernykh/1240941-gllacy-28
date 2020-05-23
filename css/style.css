@@ -42,6 +42,8 @@ img {
   font: inherit;
   font-weight: bold;
   text-align: center;
+  font-size: 18px;
+  line-height: 24px;
   color: #ffffff;
   vertical-align: middle;
   border: none;
@@ -67,6 +69,18 @@ img {
   list-style: none;
 }
 
+.popup {
+  display: block;
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.form {
+  padding: 20px 15px;
+  background-color: #F8F7F4;
+}
 .header__top {
   display: flex;
   align-items: center;
@@ -74,7 +88,7 @@ img {
 
 .header__logo {
   margin-top: 10px;
-  margin-right: 24px;
+  margin-right: 11px;
 }
 
 .logo__link {
@@ -85,29 +99,32 @@ img {
   margin-left: auto;
 }
 
-.nav__list,
-.user-nav__wrapper {
+.nav__list {
+  position: relative;
   display: flex;
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 33px;
+  margin-right: 8px;
 }
 
 .user-nav__link:not(:last-child) {
   margin-right: 10px;
 }
-
+/*Надо ли добавлять паддинги ссылкам? чтобы была больше область клика?*/
 .nav__link {
+  padding: 12px 13px;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: underline;
 }
 
 .nav__link--active {
   padding: 9px 14px;
+  text-decoration: none;
   border-bottom: none;
+  border-radius: 26px;
   background: #D07058;
 }
 
@@ -116,12 +133,58 @@ img {
   padding: 9px 14px;
   border-radius: 26px;
   color: #323232;
+  text-decoration: none;
   background: #ffffff;
 }
 
 .nav__link:active {
   background: #ededed;
   box-shadow: inset 0px 2px 1px #696969;
+}
+
+.sub-nav {
+  top: 30px;
+  left: -6px;
+  width: 143px;
+  height: auto;
+  color: #323232;
+}
+
+.nav__list > li:hover .sub-nav {
+  display: block;
+}
+
+.sub-nav__title {
+  display: block;
+  margin: 0 8px;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 18px;
+  border-bottom: 1px solid rgba(50, 50, 50, 0.2);
+}
+
+.sub-nav__items {
+  padding: 5px 0;
+}
+
+.sub-nav__link {
+  display: block;
+  padding: 7px 0 8px 22px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.sub-nav__link:hover,
+.sub-nav__link--current {
+  background-color: #fbded7;
+}
+
+.sub-nav__link:focus {
+  background-color: #f6b5a5;
+}
+
+.user-nav__wrapper {
+  display: flex;
 }
 
 .user-nav__link {
@@ -148,7 +211,7 @@ img {
   background-color: #ffffff;
 }
 
-.search__link {
+.search {
   padding: 6px 8px;
   width: 32px;
   height: 32px;
@@ -158,28 +221,50 @@ img {
   background-position: 8px 8px;
 }
 
-.search__link:hover {
+.search:hover {
   background-image: url("../img/search-hover.svg");
 }
 
-.login__link:before {
+.search-form {
+  top: 66px;
+  right: 358px;
+  width: 341px;
+  height: auto;
+}
+
+.login:before {
   width: 20px;
   height: 19px;
   background-image: url("../img/login.svg");
 }
 
-.login__link:hover:before {
+.login:hover:before {
   background-image: url("../img/login-hover.svg");
 }
 
-.cart__link:before {
+.login-form {
+  top: 66px;
+  right: 77px;
+  width: 277px;
+  height: auto;
+}
+
+.cart-link:before {
   width: 21px;
   height: 20px;
   background-image: url("../img/cart.svg");
 }
 
-.cart__link:hover:before {
+.cart-link:hover:before {
    background-image: url("../img/cart-hover.svg");
+}
+
+.cart {
+  top: 66px;
+  right: 77px;
+  width: 539px;
+  height: auto;
+  color: #323232;
 }
 
 .header-contacts {
@@ -245,9 +330,7 @@ img {
 }
 
 .promo__button {
-  padding: 13px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  padding: 13px 22px;  /*Как сдвинуть влево*/
 }
 
 .products-catalog {
@@ -276,6 +359,7 @@ img {
 .product__img {
   margin: 0;
   margin-bottom: 10px;
+  border-radius: 50%;
 }
 
 .product__title {
@@ -375,6 +459,12 @@ img {
   text-decoration: underline;
 }
 
+.blog__link:hover,
+.blog__link:focus,
+.blog__lonk:active {
+  color: #e84d37;
+}
+
 .mailing {
   padding: 5px;
   background-image: url("../img/mail-bg.png");
@@ -392,6 +482,10 @@ img {
   color: #5a5a5a;
   font-size: 16px;
   line-height: 22px;
+}
+
+.mailing__button {
+  padding: 11px 19px;
 }
 
 .map {
@@ -473,8 +567,6 @@ img {
 .contacts__button {
   padding: 9px 28px;
   font-weight: bold;
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .footer__wrapper {
@@ -545,5 +637,17 @@ img {
 }
 
 .feedback {
-  display: none;
+  display: block;
+  width: 477px;
+  height: 441px;
+  border-radius: 6px;
 }
+
+.feedback__text {
+  color: #323232;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+
