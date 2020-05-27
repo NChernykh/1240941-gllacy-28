@@ -1,17 +1,57 @@
+:root {
+  --basic-black: #000000;
+  --basic-extra-dark: #2C2829;
+  --basic-light-dark: #5A5A5A;
+  --basic-dark: #323232;
+  --hover-light: #FFBC9E;
+  --hover-dark: #E84D37;
+  --basic-white: #ffffff;
+
+  --placeholder-color: #999999;
+  --text-shadow: 0px 1px 3px rgba(49, 50, 53, 0.5);
+  --button-text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
+
+  --bg-form: #F8F7F4;
+  --bg-form-shadow: 0px 20px 20px rgba(0, 0, 0, 0.4);
+  --input-border: #D3D3D2;
+
+  --bg-link-current: #D07058;
+  --bg-link-hover: #FBDED7;
+  --bg-link-active: #F6B5A5;
+
+  --bg-button-link-active: #EDEDED;
+  --bg-button-link-active-shadow: inset 0px 2px 1px #696969;
+
+  --bg-button: linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  --bg-button-shadow: 0px 2px 2px rgba(172, 16, 0, 0.64);
+  --bg-button-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  --bg-button-hover-shadow: 0px 2px 2px #AC1000;
+  --bg-button-active: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
+  --bg-button-active-shadow: inset 0px 2px 2px #942718;
+
+  --bg-body-current: #849D8F;
+  --bg-body-block: #E5E5E5;
+  --bg-body-2: #8996A6;
+  --bg-body-3: #9D8B84;
+
+  --bg-promo: #820d0d;
+  --bg-about: #ffebcd;
+  --bg-contacts: #fefefe;
+}
+
 body {
+  min-width: 1200px;
   margin: 0;
   padding: 0;
   font-family: "Roboto", "Arial", sans-serif;
-  color: #ffffff;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--basic-white);
+  background-color: var(--bg-body-current);
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 img {
@@ -30,11 +70,14 @@ img {
   overflow: hidden;
 }
 
+.bg-wrapper {
+  background-color: var(--bg-body-current);
+}
+
 .container {
   width: 1200px;
   margin: 0 auto;
   padding: 0 27px;
-  background-color: #849D8F;
 }
 
 .btn {
@@ -44,23 +87,30 @@ img {
   text-align: center;
   font-size: 18px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--basic-white);
   vertical-align: middle;
+  text-decoration: none;
   border: none;
-  background: linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  box-shadow: 0px 2px 2px rgba(85, 8, 0, 0.54);
+  background: var(--bg-button);
+  box-shadow: var(--bg-button-shadow);
   border-radius: 26px;
 }
+
 .btn:hover {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  box-shadow: 0px 1px 2px #AC1000;
+  background: var(--bg-button-hover);
+  box-shadow: var(--bg-button-hover-shadow);
 }
 
 .btn:focus,
 .btn:active {
   outline: none;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), linear-gradient(180deg, #F26843 0%, #E74A35 100%);
-  box-shadow: inset 0px 2px 2px #942718;
+  background: var(--bg-button-active);
+  box-shadow: var(--bg-button-active-shadow);
+}
+
+.button-box {
+  margin: 0;
+  text-align: right;
 }
 
 .list {
@@ -69,24 +119,67 @@ img {
   list-style: none;
 }
 
+.link {
+  color: var(--basic-white);
+}
+
 .link:hover,
 .link:focus,
 .link:active {
-  color: #e84d37;
+  color: var(--hover-light);
 }
 
-.popup {
-  display: block;
+.link--dark {
+  color: var(--basic-dark);
+}
+
+.link--dark:hover,
+.link--dark:focus,
+.link--dark:active {
+  color: var(--hover-dark);
+}
+
+.dropdown__menu {
+  display: none;
   position: absolute;
-  background: #ffffff;
-  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.4);
+  height: auto;
+  color: var(--basic-dark);
+  border-radius: 4px;
+  box-shadow: var(--bg-form-shadow);
+}
+
+.dropdown:hover .dropdown__menu {
+  display: block;
+}
+
+.field-text__input {
+  padding: 13px;
+  width: 100%;
+  font: inherit;
+  font-weight: bold;
+  color: var(--basic-dark);
+  background: var(--basic-white);
+  border: 1px solid var(--input-border);
   border-radius: 4px;
 }
 
-.form {
-  padding: 20px 15px;
-  background-color: #F8F7F4;
+.field-text__input::-webkit-input-placeholder {
+  color: var(--placeholder-color);
+  font-weight: normal;
 }
+.field-text__input:-ms-input-placeholder {
+  color: var(--placeholder-color);
+  font-weight: normal;
+}
+.field-text__input::-ms-input-placeholder {
+  color: var(--placeholder-color);
+  font-weight: normal;
+}
+.field-text__input::placeholder {
+  color: var(--placeholder-color);
+  font-weight: normal;
+}
+
 .header__top {
   display: flex;
   align-items: center;
@@ -111,53 +204,47 @@ img {
 }
 
 .nav__item:not(:last-child) {
-  margin-right: 8px;
+  margin-right: 5px;
 }
 
-.user-nav__link:not(:last-child) {
-  margin-right: 10px;
-}
-/*Надо ли добавлять паддинги ссылкам? чтобы была больше область клика?*/
 .nav__link {
-  padding: 12px 13px;
+  padding: 7px 14px;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
-  text-decoration: underline;
+  color: var(--basic-white);
+  border: transparent;
+  border-radius: 26px;
 }
 
 .nav__link--active {
-  padding: 9px 14px;
   text-decoration: none;
-  border-bottom: none;
-  border-radius: 26px;
-  background: #D07058;
+  background-color: var(--bg-link-current);
 }
 
 .nav__link:hover,
+.nav__link:focus,
 .nav__link:active {
-  padding: 9px 14px;
-  border-radius: 26px;
-  color: #323232;
+  color: var(--basic-dark);
   text-decoration: none;
-  background: #ffffff;
+  background-color: var(--basic-white);
 }
 
+.nav__link:focus,
 .nav__link:active {
-  background: #ededed;
-  box-shadow: inset 0px 2px 1px #696969;
+  background: var(--bg-button-link-active);
+  box-shadow: var(--bg-button-link-active-shadow);
+}
+
+.dropdown__menu--sub-nav {
+  top: 30px;
+  left: -6px;
 }
 
 .sub-nav {
-  top: 30px;
-  left: -6px;
   width: 143px;
-  height: auto;
-  color: #323232;
-}
-
-.nav__list > li:hover .sub-nav {
-  display: block;
+  background-color: var(--basic-white);
+  border-radius: 4px;
 }
 
 .sub-nav__title {
@@ -178,15 +265,17 @@ img {
   padding: 7px 0 8px 22px;
   font-size: 14px;
   line-height: 16px;
+  color: var(--basic-dark);
+  text-decoration: none;
 }
 
 .sub-nav__link:hover,
 .sub-nav__link--current {
-  background-color: #fbded7;
+  background-color: var(--bg-link-hover);
 }
 
 .sub-nav__link:focus {
-  background-color: #f6b5a5;
+  background-color: var(--bg-link-active:);
 }
 
 .user-nav__wrapper {
@@ -196,29 +285,37 @@ img {
 .user-nav__link {
   position: relative;
   display: inline-block;
-  padding: 8px 16px 8px 45px;
+  padding: 11px 16px 9px 45px;
   font-size: 14px;
   line-height: 16px;
-  background: rgba(255, 255, 255, 0.2);
+  color: var(--basic-white);
+  font-weight: 500;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 }
 
 .user-nav__link:before {
   content: "";
   position: absolute;
-  top: 5px;
-  left: 15px;
+  top: 8px;
+  left: 16px;
   background-repeat: no-repeat;
   background-position: 0 0;
 }
 
-.user-nav__link:hover {
-  color: #323232;
-  background-color: #ffffff;
+.user-nav__link:hover,
+.user-nav__link--active {
+  color: var(--basic-dark);
+  background-color: var(--basic-white);
+}
+
+.user-nav__link:not(:last-child) { /*Почему в каталоге появляется margin-right у последней ссылки? В индексе все норм.*/
+  margin-right: 10px;
 }
 
 .search {
-  padding: 6px 8px;
+  padding: 8px;
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -231,11 +328,30 @@ img {
   background-image: url("../img/search-hover.svg");
 }
 
+.dropdown__menu--search {
+  top: 60px;
+  right: 313px;
+}
+
 .search-form {
   top: 66px;
   right: 358px;
   width: 341px;
   height: auto;
+  padding: 20px 15px;
+  background-color: var(--bg-form);
+  border-radius: 4px;
+}
+
+.search-form__button {
+  position: absolute;
+  top: -39px;
+  right: 0px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .login:before {
@@ -248,11 +364,54 @@ img {
   background-image: url("../img/login-hover.svg");
 }
 
+.dropdown__menu--login {
+  top: 60px;
+  right: 209px;
+}
+
 .login-form {
+  display: flex;
+  flex-wrap: wrap;
   top: 66px;
   right: 77px;
   width: 277px;
   height: auto;
+  padding: 19px;
+  background-color: var(--bg-form);
+  border-radius: 4px;
+}
+
+.login-form__item {
+  margin: 0;
+  margin-bottom: 20px;
+  width: 100%
+}
+
+.login-form__half {
+  margin: 0;
+  width: 50%;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.login-form__button {
+  padding: 15px 25px;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.login-form__link {
+  display: inline-block;
+  padding: 4px 0 2px 1px;
+}
+
+.cart {
+  top: 66px;
+  right: 77px;
+  width: 539px;
+  height: auto;
+  color: var(--basic-dark);
+  background-color: var(--bg-form);
 }
 
 .cart-link:before {
@@ -265,12 +424,10 @@ img {
    background-image: url("../img/cart-hover.svg");
 }
 
-.cart {
-  top: 66px;
-  right: 77px;
-  width: 539px;
-  height: auto;
-  color: #323232;
+.cart-link-full:before {
+  width: 21px;
+  height: 20px;
+  background-image: url("../img/cart-full.svg");
 }
 
 .header-contacts {
@@ -289,6 +446,8 @@ img {
   font-size: 22px;
   line-height: 24px;
   font-weight: bold;
+  color: var(--basic-white);
+  text-decoration: none;
 }
 
 .banner {
@@ -301,23 +460,21 @@ img {
   margin-right: 26px;
 }
 
-.banner__item {
-  max-width: 560px;
-  padding: 16px;
+.promo {
+  padding: 16px 22px 20px 16px;
+  width: 560px;
+  height: auto;
   border-radius: 16px;
+  background-color: var(--bg-promo);
   background-repeat: no-repeat;
   background-position: 0 0;
 }
 
-.promo--bg--left {
-  width: 560px;
-  height: 229px;
+.promo--bg-left {
   background-image: url("../img/raspeberry-bg.jpg");
 }
 
-.promo--bg--right {
-  width: 560px;
-  height: 229px;
+.promo--bg-right {
   background-image: url("../img/choco-bg.jpg");
 }
 
@@ -329,24 +486,25 @@ img {
 }
 
 .promo__text {
-  font-size: 18px;
-  line-height: 21px;
-  letter-spacing: 0.15px;
   margin-bottom: 42px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
 }
 
 .promo__button {
-  padding: 13px 22px;  /*Как сдвинуть влево*/
-}
-
-.products-catalog {
-  margin-bottom: 40px;
+  padding: 12px 22px;
 }
 
 .products-catalog__cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.products-catalog__wrapper {
+  margin-bottom: 37px;
 }
 
 .product {
@@ -354,35 +512,36 @@ img {
   max-width: 267px;
 }
 
-.product:not(:last-child) {
-  margin-right: 26px;
-}
-
 .product__link {
   display: inline-block;
+  text-decoration: none;
 }
 
 .product__img {
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 9px;
   border-radius: 50%;
 }
 
 .product__title {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 258px;
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
   text-align: center;
+  color: var(--basic-white);
+  text-decoration: underline;
 }
 
 .product__cost {
   position: absolute;
-  bottom: 25px;
+  top: 164px;
   left: 0;
   font-weight: bold;
   font-size: 45px;
   line-height: 45px;
+  text-shadow: 0px 1px 3px rgba(49, 50, 53, 0.5);
 }
 
 .product__weight {
@@ -401,7 +560,7 @@ img {
   height: 61px;
   background-image: url("../img/hit.svg");
   background-position: 14px 17px;
-  background-color:  #ffffff;
+  background-color:  var(--basic-white);
   background-repeat: no-repeat;
   border-radius: 50%;
 }
@@ -409,10 +568,10 @@ img {
 .about {
   margin-bottom: 40px;
   padding: 25px 20px 7px;
-  color: #323232;
+  color: var(--basic-dark);
+  background-color: var(--bg-about);
   background-image: url("../img/waffle-bg.jpg");
-  background-repeat: repeat;  /*почему фон не повторяется как в макете?*/
-  background-size: cover;
+  background-repeat: repeat;
   border-radius: 16px;
 }
 
@@ -431,6 +590,7 @@ img {
 }
 
 .about__item {
+  position: relative;
   margin: 0;
   margin-bottom: 23px;
   max-width: 540px;
@@ -439,16 +599,46 @@ img {
   line-height: 22px;
 }
 
+.about__item:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 49px;
+  height: 49px;
+  background-repeat: no-repeat;
+  background-position: 12px 6px;
+  border: 2px solid var(--basic-dark);
+  border-radius: 50%;
+}
+
+.about__item--icon-1:before {
+  background-image: url(../img/ice-cream.svg);
+}
+
+.about__item--icon-2:before {
+  background-image: url(../img/cow.svg);
+  background-position: 9px 9px;
+}
+
+.about__item--icon-3:before {
+  background-image: url(../img/leaf.svg);
+}
+
+.about__item--icon-4:before {
+  background-image: url(../img/thermometer.svg);
+  background-position: 15px 8px;
+}
+
 .blog {
-  width: 560px;
   height: 220px;
-  padding: 20px;
+  padding: 17px 20px;
   background-image: url("../img/strawberry-bg.jpg");
 }
 
 .blog__title {
   margin: 0;
-  color: #323232;
+  color: var(--basic-dark);
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -458,33 +648,52 @@ img {
   display: inline-block;
   margin: 0;
   max-width: 287px;
-  color: #323232;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
   text-decoration: underline;
 }
 
-.mailing {
+.subscription {
   padding: 5px;
   background-image: url("../img/mail-bg.png");
 }
 
-.mailing__wrapper {
-  padding: 25px 22px;
-  background-color: #F8F7F4;
+.subscription__wrapper {
+  padding: 22px;
+  padding-bottom: 34px;
+  background-color: var(--bg-form);
   border-radius: 16px;
 }
 
-.mailing__text {
+.subscription__text {
   margin: 0;
   margin-bottom: 40px;
-  color: #5a5a5a;
+  color: var(--basic-light-dark);
   font-size: 16px;
   line-height: 22px;
 }
 
-.mailing__button {
+.subscription__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subscription__field-text {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.subscription__input::placeholder {
+  font-size: 16px;
+line-height: 24px;
+}
+
+.subscription__input {
+  padding: 16px 11px 10px;
+}
+
+.subscription__button {
   padding: 11px 19px;
 }
 
@@ -521,15 +730,15 @@ img {
 
 .contacts {
   margin: 0;
-  padding: 31px 25px;
+  padding: 28px 25px;
   position: absolute;
   top: 62px;
   right: 27px;
   z-index: 5;
   width: 303px;
   height: 306px;
-  color: #323232;
-  background: #fefefe;
+  color: var(--basic-dark);
+  background: var(--bg-contacts);
   border-radius: 16px;
 }
 
@@ -543,7 +752,7 @@ img {
 
 .contacts__address {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
@@ -555,11 +764,13 @@ img {
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
+  color: var(--basic-dark);
+  text-decoration: none;
 }
 
 .contacts__schedule {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   font-size: 14px;
   line-height: 20px;
 }
@@ -575,7 +786,7 @@ img {
 }
 
 .footer__item:not(:last-child) {
-  padding: 32px 0;
+  padding: 30px 0;
   display: flex;
 }
 
@@ -589,23 +800,34 @@ img {
   border: 2px solid rgba(255, 255, 255, 0.5);
   background-repeat: no-repeat;
   background-position: -1px 0;
+  opacity: 0.8;
 }
 
-.facebook {
+.social__link--facebook {
   background-image: url("../img/facebook.svg");
+
 }
 
-.vkontakte {
+.social__link--vkontakte {
   background-image: url("../img/vkontakte.svg");
 }
 
-.instagram {
+.social__link--instagram {
   background-image: url("../img/instagram.svg");
 }
 
-.twitter {
+.social__link--twitter {
   margin-right: 0;
   background-image: url("../img/twitter.svg");
+}
+
+.social__link:hover {
+  opacity: 1;
+}
+
+.social__link:active {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  opacity: 1;
 }
 
 .documents {
@@ -617,7 +839,7 @@ img {
   margin-right: 32px;
   font-size: 13px;
   line-height: 18px;
-  text-decoration: underline;
+  color: var(--basic-white);
 }
 
 .copyright {
@@ -636,18 +858,144 @@ img {
   line-height: 18px;
 }
 
+/* catalog.thml*/
+
+.breadcrumbs {
+  position: absolute;
+  top: 100px;
+  left: 105px;
+}
+
+.breadcrumbs__list {
+  display: flex;
+}
+
+.breadcrumbs__item:not(:last-child) {
+  margin-right: 22px;
+}
+
+.breadcrumbs__link {
+  position: relative;
+  color: var(--basic-white);
+}
+
+.breadcrumbs__link:after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: -16px;
+  width: 6px;
+  height: 6px;
+  background-image: url(../img/double-right.svg);
+}
+
+.catalog-main__title {
+  margin: 0;
+  margin-bottom: 55px;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 30px; /*стоит ли менять, чтобы подогнать по высоте? Было 41px*/
+}
+
+.pagination {
+  margin-bottom: 34px;
+}
+
+.pagination__wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagination__link {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 3px 8px;
+  color: var(--basic-white);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+}
+
+.pagination__arrow {
+  content: "";
+  position: relative;
+  top: 2px;
+  right: -4px;
+  margin-right: 0;
+  padding: 10px;
+  width: 7px;
+  height: 12px;
+  background-image: url("../img/right.svg");
+  background-repeat: no-repeat;
+  background-position: 7px 4px;
+}
+
+.pagination__arrow:first-child {
+  left: -10px;
+  transform: rotate(180deg);
+}
+
+.pagination__link:hover:not(.pagination__link--current) {
+  background-color: rgba (var(--basic-white), 0.2);
+  border-radius: 50%;
+}
+
+.pagination__link--current,
+.pagination__link:focus,
+.pagination__link:active {
+  color: var(--basic-dark);
+  background-color: var(--basic-white);
+  border-radius: 50%;
+}
+
+.pagination__arrow:disabled {
+  cursor: default;
+}
+.pagination__arrow path {
+  fill-opacity: 0.2;
+}
+
 .feedback {
   display: block;
+  margin: 0 auto;
+  padding: 15px 25px;
   width: 477px;
   height: 441px;
   border-radius: 6px;
+  background-color: var(--bg-form);
 }
 
 .feedback__text {
-  color: #323232;
+  margin: 0;
+  margin-bottom: 20px;
+  color: var(--basic-dark);
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
 }
 
+.feedback-form__item {
+  margin: 0;
+  margin-bottom: 20px;
+  width: 62.5%;
+}
 
+.feedback-form__input {
+  padding: 11px;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px solid rgba(178, 178, 178, 0.52);
+}
+
+.feedback-form__textarea {
+  margin: 0;
+  padding-bottom: 20px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.feedback-form__button {
+  padding: 11px 24px;
+}
