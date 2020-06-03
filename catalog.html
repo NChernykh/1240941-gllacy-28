@@ -132,9 +132,9 @@
         <h1 class="catalog-main__title">Сливочное мороженое</h1>
         <section class="filters">
           <h2 class="visually-hidden">Фильтр товаров</h2>
-          <form class="filters-form" action="https://echo.htmlacademy.ru" method="get">
-            <fieldset>
-              <legend>Сортировка:</legend>
+          <form class="filters__form" action="https://echo.htmlacademy.ru" method="get">
+            <fieldset class="filters__item">
+              <legend class="filters__name">Сортировка:</legend>
               <select class="filters-bg select">
                 <option class="select-item" value="popular">по популярности</option>
                 <option class="select-item" value="low price">сначала недорогие</option>
@@ -142,16 +142,16 @@
                 <option class="select-item" value="fat">по жирности</option>
               </select>
             </fieldset>
-            <div class="filter-range">
-              <div class="filter-range__title">Цена: 100 ₽ – 500 ₽</div>
-              <div class="filters-bg filter-range__controls">
+            <fieldset class="filters__item range">
+              <legend class="filters__name">Цена: 100 ₽ – 500 ₽</legend>
+              <div class="range__controls">
                 <div class="scale">
                   <div class="scale__bar"></div>
                 </div>
-                <div class="toggle toggle--min"></div>
-                <div class="toggle toggle--max"></div>
+                <div class="toggle toggle--min" tabindex="0" style="left: 15%"> </div>
+                <div class="toggle toggle--max" tabindex="0" style="left: 60%"> </div>
               </div>
-            </div>
+            </fieldset>
             <fieldset class="filters-form"></fieldset>
             <fieldset class="filters-form"> </fieldset>
           </form>
@@ -190,7 +190,7 @@
               <article class="product">
                 <a href="" class="product__link">
                   <img class="product__img" src="img/ic-4.jpg" alt="Крем-брюле с карамельное подливкой" width="267" height="267">
-                  <h3 class="product__title">Сливочное крем-брюле с карамельной подливкой</h3>
+                  <h3 class="product__title">Сливочное крем-брюле с&nbsp;карамельной подливкой</h3>
                 </a>
                 <p class="product__cost">415 ₽<span class="product__weight">/кг</span></p>
               </article>
