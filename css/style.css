@@ -1,8 +1,8 @@
 :root {
-  --basic-black: hsl(0, 0%, 0%);;
-  --basic-extra-dark: hsl(345, 5%, 16%);;
-  --basic-light-dark: hsl(0, 0%, 35%);;
-  --basic-dark: hsl(0, 0%, 20%);
+  --basic-black: #000000;
+  --basic-extra-dark: #ababab;
+  --basic-light-dark: #5A5A5A;
+  --basic-dark: #323232;
   --hover-light: #FFBC9E;
   --hover-dark: #E84D37;
   --basic-white: #ffffff;
@@ -75,6 +75,10 @@ img {
   background-color: var(--bg-body-current);
   background-repeat: no-repeat;
   background-position: center top;
+}
+
+.page-catalog {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .index-1 {
@@ -248,13 +252,22 @@ img {
 }
 
 .nav__link {
+  position: relative;
   padding: 7px 14px;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
   color: var(--basic-white);
-  border: transparent;
   border-radius: 26px;
+}
+
+.nav__link:after {
+  content:"";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
 }
 
 .nav__link--active {
@@ -325,18 +338,19 @@ img {
 }
 
 .user-nav {
+  margin-top: 5px;
   margin-left: auto;
   display: flex;
 }
 
-.user-nav__item:not(:last-child) { /*Почему в каталоге появляется margin-right у последней ссылки? В индексе все норм.*/
+.user-nav__item:not(:last-child) {
   margin-right: 10px;
 }
 
 .user-nav__link {
   position: relative;
   display: inline-block;
-  padding: 12px 16px 9px 45px;
+  padding: 11px 16px 7px 45px;
   font-size: 14px;
   line-height: 16px;
   color: var(--basic-white);
@@ -364,6 +378,7 @@ img {
 }
 
 .search {
+  position: relative;
   padding: 8px;
   width: 32px;
   height: 32px;
@@ -371,6 +386,15 @@ img {
   background-image: url("../img/search.svg");
   background-repeat: no-repeat;
   background-position: 8px 8px;
+}
+
+.search::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60px;
+  width: 60px;
+  height: 40px;
 }
 
 .search:hover,
@@ -412,7 +436,8 @@ img {
 
 .login:hover::before,
 .login:focus::before,
-.login:active::before, {
+.login:active::before {
+  outline: none;
   background-image: url("../img/login-hover.svg");
 }
 
@@ -462,7 +487,7 @@ img {
 }
 
 .cart-empty:hover::before,
-.cart-empty:focus::before
+.cart-empty:focus::before,
 .cart-empty:active::before {
   background-image: url("../img/cart-hover.svg");
 }
@@ -641,7 +666,7 @@ img {
 }
 
 .banner {
-  margin-bottom: 40px;
+  margin-bottom: 34px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 26px;
@@ -692,22 +717,47 @@ img {
 }
 
 .products-catalog {
+  margin: 0 -13px;
   margin-bottom: 40px;
 }
 
 .products-catalog__cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 37px 26px;
+  row-gap: 37px;
 }
 
 .product {
   position: relative;
-  width: 267px;
+  width: 293px;
+  padding-top: 6px;
+  text-align: center;
+}
+
+.product__button {
+  display: none;
+  margin: 0 auto;
+  margin-top: 7px;
+  margin-bottom: 20px;
+  padding: 10px 16px;
 }
 
 .product__link {
   display: block;
+}
+
+.product:hover {
+  width: 293px;
+  height: 402px;
+  position: relative;
+  background: var(--basic-white);
+  opacity: 0.2;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.product:hover .product__button {
+  display: inline-block;
 }
 
 .product__img {
@@ -732,8 +782,8 @@ img {
 .product__cost {
   margin: 0;
   position: absolute;
-  top: 210px;
-  left: 0;
+  top: 215px;
+  left: 14px;
   font-weight: bold;
   font-size: 45px;
   line-height: 45px;
@@ -749,8 +799,8 @@ img {
 .product--hit::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 6px;
+  left: 13px;
   z-index: 5;
   width: 61px;
   height: 61px;
@@ -822,6 +872,10 @@ img {
 .about__item--icon-4::before {
   background-image: url(../img/thermometer.svg);
   background-position: 15px 8px;
+}
+
+.banner--2 {
+  margin-bottom: 37px;
 }
 
 .blog {
@@ -931,7 +985,7 @@ img {
   margin: 0;
   padding: 30px 25px;
   position: absolute;
-  top: 62px;
+  top: 65px;
   right: 27px;
   z-index: 5;
   width: 303px;
@@ -1082,7 +1136,7 @@ img {
 .breadcrumbs {
   position: absolute;
   top: 100px;
-  left: 102px;
+  left: 97px;
 }
 
 .breadcrumbs__list {
@@ -1116,27 +1170,96 @@ img {
   line-height: 30px; /*стоит ли менять, чтобы подогнать по высоте? Было 41px*/
 }
 
+.filters {
+  width: 869px;
+  margin-bottom: 27px;
+}
+
+.filters__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+}
+
 .filters__item {
   margin: 0;
+  margin-bottom: 12px;
+  padding: 0;
   border: none;
 }
 
 .filters__name {
-  font-weight: 500;
+  margin-left: 17px;
+  margin-bottom: 5px;
   font-size: 14px;
   line-height: 16px;
 }
 
+.filters__bg {
+  height: 38px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 20px;
+}
+
+.filters-option__label {
+  padding-left: 28px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filters-option__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select__controls {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 196px;
+  padding-left: 17px;
+  color: var(--basic-white);
+  font-weight: 500;
+  background-image: url(../img/arrow.svg);
+  background-repeat: no-repeat;
+  background-position: 172px 14px;
+}
+
+.select__controls:hover {
+  color: var(--basic-dark);
+  background-image: url(../img/arrow-hover.svg);
+}
+
+.select__controls:focus,
+.select__controls:active {
+  outline: none;
+}
+
+.select__item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--basic-dark);
+}
+
+.select__item:hover {
+  border: none;
+}
+
 .range {
-  width: 239px;
+  width: 218px;
 }
 
 .range__controls {
   position: relative;
-  height: 38px;
   padding: 17px 21px 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
 }
 
 .scale {
@@ -1152,14 +1275,22 @@ img {
 }
 
 .toggle {
+  box-sizing: content-box;
   position: absolute;
-  top: 13px;
+  top: 10px;
   width: 4px;
   height: 4px;
+  background: var(--basic-extra-dark);
   border: 8px solid var(--basic-white);
-  background-color: #ababab;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.toggle:hover {
+  top: 8px;
+  width: 4.4px;
+  height: 4.55px;
+  border: 9px solid var(--basic-white);
 }
 
 .toggle--min {
@@ -1168,6 +1299,98 @@ img {
 
 .toggle--max {
   left: 168px;
+}
+
+.radiobuttons {
+  width: 425px;
+}
+
+.radiobuttons__controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 17px;
+  padding-top: 11px;
+}
+
+.filters-option__radio {
+  position: absolute;
+  left: -3px;
+  top: -2px;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--basic-white);
+  opacity: 0.8;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.filters-option__input:checked + .filters-option__radio {
+  background-image: url("../img/radio-on.svg");
+}
+
+.filters-option__input:hover + .filters-option__radio {
+  opacity: 1;
+}
+
+.checkbox {
+  width: 711px;
+}
+
+.checkbox__controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3px;
+  padding: 0 20px;
+  padding-top: 9px;
+}
+
+.filters-option__checkbox {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 10%;
+  border: 2px solid var(--basic-white);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  opacity: 0.8;
+}
+
+.filters-option__input:checked + .filters-option__checkbox {
+  width: 24px;
+  border: none;
+  background-image: url("../img/checkbox-on.svg");
+}
+
+.filters-option__input:hover + .filters-option__checkbox {
+  opacity: 1;
+}
+
+.filter-button {
+  margin-top: 24px;
+  padding: 11px 28px;
+  vertical-align: middle;
+  text-align: center;
+  color: var(--basic-white);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  border: 2px solid var(--basic-white);
+}
+
+.filter-button:hover {
+  color: var(--basic-dark);
+  background-color: var(--basic-white);
+  border: none;
+}
+
+.filter-button:focus,
+.filter-button:active {
+  outline: none;
+  box-shadow: inset 0px 2px 1px #696969;
 }
 
 .pagination {
