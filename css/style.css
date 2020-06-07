@@ -740,6 +740,7 @@ img {
   margin-top: 7px;
   margin-bottom: 20px;
   padding: 10px 16px;
+  cursor: pointer;
 }
 
 .product__link {
@@ -748,10 +749,8 @@ img {
 
 .product:hover {
   width: 293px;
-  height: 402px;
   position: relative;
-  background: var(--basic-white);
-  opacity: 0.2;
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
@@ -1205,6 +1204,10 @@ img {
   border-radius: 20px;
 }
 
+.filters-option:not(:last-child) {
+  margin-right: 19px;
+}
+
 .filters-option__label {
   padding-left: 28px;
   position: relative;
@@ -1307,7 +1310,6 @@ img {
 
 .radiobuttons__controls {
   display: flex;
-  justify-content: space-between;
   padding: 0 17px;
   padding-top: 11px;
 }
