@@ -54,7 +54,6 @@
                   <label class="field-text" aria-label="Форма поиска">
                     <input class="field-text__input" type="search" name="search" placeholder="крем-брюле">
                   </label>
-                  <button class="search-form__button" type="submit" aria-label="Найти"></button>
                 </form>
               </section>
             </div>
@@ -90,14 +89,20 @@
                 <div class="cart">
                   <div class="cart__box">
                     <div class="cart__item">
-                      <a class="cart__del-button" href="" aria-label="Удалить товар"></a>
-                      <span class="cart__name cart__name--1">Пломбир с апельсиновым джемом</span>
+                      <button class="cart__del-button" type="button" aria-label="Удалить товар"></button>
+                      <span class="cart__item-img">
+                        <img class="cart__img" src="img/ic-1.jpg" width="33" height="33" alt="Пломбир с апельсиновым джемом">
+                      </span>
+                      <span class="cart__name">Пломбир с апельсиновым джемом</span>
                       <span class="cart__weight">1,5 кг х 200 руб.</span>
                       <span class="cart__price">300 руб.</span>
                     </div>
                     <div class="cart__item">
-                      <a class="cart__del-button" href="" aria-label="Удалить товар"></a>
-                      <span class="cart__name cart__name--2">Клубничный пломбир с присыпкой из белого шоколада</span>
+                      <button class="cart__del-button" type="button" aria-label="Удалить товар"></button>
+                      <span class="cart__item-img">
+                        <img class="cart__img" src="img/ic-3.jpg" width="33" height="33" alt="Клубничный пломбир">
+                      </span>
+                      <span class="cart__name">Клубничный пломбир с присыпкой из белого шоколада</span>
                       <span class="cart__weight">1,5 кг х 300 руб.</span>
                       <span class="cart__price">450 руб.</span>
                     </div>
@@ -109,26 +114,26 @@
             </div>
           </div>
         </div>
-        <div class="header-contacts">
-          <p class="header-contacts__schedule">с 10 до 20, ежедневно</p>
-          <a class="header-contacts__tel" href="tel:+78124502525" aria-label="Номер телефона">8 812 450-25-25</a>
+        <div class="header-contacts catalog-box">
+          <p class="header-contacts__schedule catalog-box__schedule">с 10 до 20, ежедневно</p>
+          <a class="header-contacts__tel catalog-box__tel" href="tel:+78124502525" aria-label="Номер телефона">8 812 450-25-25</a>
+          <nav class="breadcrumbs" aria-label="Навигация по сайту">
+            <ul class="breadcrumbs__list list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link link" href="index.html">Главная</a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link link" href="#">Каталог</a>
+              </li>
+              <li class="breadcrumbs__item">Сливочное
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
     <main class="catalog-main">
       <div class="container">
-        <nav class="breadcrumbs" aria-label="Навигация по сайту">
-          <ul class="breadcrumbs__list list">
-            <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link link" href="index.html">Главная</a>
-            </li>
-            <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link link" href="#">Каталог</a>
-            </li>
-            <li class="breadcrumbs__item">Сливочное
-            </li>
-          </ul>
-        </nav>
         <h1 class="catalog-main__title">Сливочное мороженое</h1>
         <section class="filters">
           <h2 class="visually-hidden">Фильтр товаров</h2>
@@ -155,31 +160,31 @@
             <fieldset class="filters__item radiobuttons">
               <legend class="filters__name">Жирность:</legend>
               <div class="filters__bg radiobuttons__controls">
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input class="filters-option__input" type="radio" name="fat" value="0%">
-                    <span class="filters-option__radio"></span>
+                <div class="option radiobuttons__option">
+                  <label class="option__label radiobuttons__label">
+                    <input class="option__input" type="radio" name="fat" value="0%">
+                    <span class="option__radio"></span>
                     0%
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input class="filters-option__input" type="radio" name="fat" value="до 10%" checked>
-                    <span class="filters-option__radio"></span>
+                <div class="option radiobuttons__option">
+                  <label class="option__label  radiobuttons__label">
+                    <input class="option__input" type="radio" name="fat" value="до 10%" checked>
+                    <span class="option__radio"></span>
                     до 10%
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input class="filters-option__input" type="radio" name="fat" value="до 30%">
-                    <span class="filters-option__radio"></span>
+                <div class="option radiobuttons__option">
+                  <label class="option__label radiobuttons__label">
+                    <input class="option__input" type="radio" name="fat" value="до 30%">
+                    <span class="option__radio"></span>
                     до 30%
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input class="filters-option__input" type="radio" name="fat" value="выше 30%">
-                    <span class="filters-option__radio"></span>
+                <div class="option  radiobuttons__option">
+                  <label class="option__label radiobuttons__label">
+                    <input class="option__input" type="radio" name="fat" value="выше 30%">
+                    <span class="option__radio"></span>
                     выше 30%
                   </label>
                 </div>
@@ -188,37 +193,37 @@
             <fieldset class="filters__item checkbox">
               <legend class="filters__name">Наполнители:</legend>
               <div class="filters__bg checkbox__controls">
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input type="checkbox" class="filters-option__input" name="chocolate" checked>
-                    <span class="filters-option__checkbox"></span>шоколадные
+                <div class="option checkbox__option">
+                  <label class="option__label checkbox__label">
+                    <input type="checkbox" class="option__input" name="chocolate" checked>
+                    <span class="option__checkbox"></span>шоколадные
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input type="checkbox" class="filters-option__input" name="sugar" checked>
-                    <span class="filters-option__checkbox"></span>
+                <div class="option checkbox__option">
+                  <label class="option__label checkbox__label">
+                    <input type="checkbox" class="option__input" name="sugar" checked>
+                    <span class="option__checkbox"></span>
                     сахарные присыпки
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input type="checkbox" class="filters-option__input" name="fruit">
-                    <span class="filters-option__checkbox"></span>
+                <div class="option checkbox__option">
+                  <label class="option__label checkbox__label">
+                    <input type="checkbox" class="option__input" name="fruit">
+                    <span class="option__checkbox"></span>
                     фрукты
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input type="checkbox" class="filters-option__input" name="syrop">
-                    <span class="filters-option__checkbox"></span>
+                <div class="option checkbox__option">
+                  <label class="option__label checkbox__label">
+                    <input type="checkbox" class="option__input" name="syrop">
+                    <span class="option__checkbox"></span>
                     сиропы
                   </label>
                 </div>
-                <div class="filters-option">
-                  <label class="filters-option__label">
-                    <input type="checkbox" class="filters-option__input">
-                    <span class="filters-option__checkbox"></span>
+                <div class="option checkbox__option">
+                  <label class="option__label checkbox__label">
+                    <input type="checkbox" class="option__input">
+                    <span class="option__checkbox"></span>
                     джемы
                   </label>
                 </div>
