@@ -38,12 +38,15 @@ close.addEventListener("click", function (evt) {
 form.addEventListener("submit", function (evt) {
   if(!userName.value || !userMail.value) {
     evt.preventDefault();
+    console.log("userName.value");
+    console.log("userMail.value");
+
     modal.classList.remove("modal-error");
-    loginPopup.offsetWidth = loginPopup.offsetWidth;
+    modal.offsetWidth = modal.offsetWidth;
     modal.classList.add("modal-error");
   } else {
     if (isStorageSupport) {
-      localStorage.setItem("userName" , userName.value);
+      localStorage.setItem("userName", userName.value);
     }
   }
 });
@@ -58,4 +61,30 @@ window.addEventListener("keydown" , function (evt) {
     }
   }
 });
+
+var body = document.querySelector(".page-body");
+var sliderControls = document.querySelector(".slider__controls");
+var sliderButton = document.querySelectorAll(".slider__button");
+var sliderItem = document.querySelectorAll(".slider__item");
+var slide = "1";
+
+if (sliderControls) {
+  sliderControls.addEventListener("click", function (evt) {
+    evt.preventDefault();
+    if(evt.target.classList.contains("slider__button")) {
+      body.classList.remove("index-" + slide);
+      sliderItem[slide - 1].classList.remove("slide--current");
+      sliderButton[slide - 1].classList.remove("slider__button--current");
+
+      slide = evt.target.dataset.number;
+
+      body.classList.add("index-" + slide);
+      sliderItem[slide - 1].classList.add("slide--current");
+      sliderButton[slide - 1].classList.add("slider__button--current");
+    };
+  });
+};
+
+
+
 
