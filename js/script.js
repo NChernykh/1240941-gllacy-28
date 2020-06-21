@@ -1,3 +1,5 @@
+//Модальное окно
+
 var link = document.querySelector(".contacts__button");
 var modal = document.querySelector(".feedback");
 var overlay = document.querySelector(".modal-overlay");
@@ -62,25 +64,25 @@ window.addEventListener("keydown" , function (evt) {
   }
 });
 
+// Слайдер
+
 var body = document.querySelector(".page-body");
 var sliderControls = document.querySelector(".slider__controls");
 var sliderButton = document.querySelectorAll(".slider__button");
 var sliderItem = document.querySelectorAll(".slider__item");
-var slide = "1";
+var number = "1";
 
 if (sliderControls) {
   sliderControls.addEventListener("click", function (evt) {
     evt.preventDefault();
     if(evt.target.classList.contains("slider__button")) {
-      body.classList.remove("index-" + slide);
-      sliderItem[slide - 1].classList.remove("slide--current");
-      sliderButton[slide - 1].classList.remove("slider__button--current");
-
-      slide = evt.target.dataset.number;
-
-      body.classList.add("index-" + slide);
-      sliderItem[slide - 1].classList.add("slide--current");
-      sliderButton[slide - 1].classList.add("slider__button--current");
+      body.classList.remove("index-" + number);
+      sliderItem[number - 1].classList.remove("slide--current");
+      sliderButton[number - 1].classList.remove("slider__button--current");
+      number = evt.target.dataset.number;
+      body.classList.add("index-" + number);
+      sliderItem[number - 1].classList.add("slide--current");
+      sliderButton[number - 1].classList.add("slider__button--current");
     };
   });
 };
