@@ -10,7 +10,7 @@
 
   --placeholder-color: #999999;
   --text-shadow: 0px 1px 3px rgba(49, 50, 53, 0.5);
-  --button-text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
+  --btn-text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
   --cart-bottom-line: #CACAC7;
 
   --bg-form: #F8F7F4;
@@ -22,6 +22,11 @@
   --bg-link-current: #D07058;
   --bg-link-hover: #FBDED7;
   --bg-link-active: #F6B5A5;
+  --bg-link-underline-hover: rgba(255, 188, 158, 0.3);
+  --bg-dark-link-underline: rgba(50, 50, 50, 0.3);
+  --bg-dark-link-underline-hover: rgba(232, 77, 55, 0.3);
+  --bg-blog-underline: #353535;
+
   --bg-basic: rgba(255, 255, 255, 0.2);
 
   --bg-button-link-active: #EDEDED;
@@ -125,6 +130,7 @@ img {
   text-decoration: none;
   background: var(--bg-button);
   box-shadow: var(--bg-button-shadow);
+  text-shadow: var(--btn-text-shadow);
   border: none;
   border-radius: 26px;
 }
@@ -149,29 +155,37 @@ img {
 
 .link {
   color: var(--basic-white);
+  text-decoration: underline;
+  text-decoration-color: var(--bg-basic);
+  text-underline-position: under;
 }
 
 .link:hover,
 .link:focus,
 .link:active {
   color: var(--hover-light);
+  text-decoration-color: var(--bg-link-underline);
   outline: none;
 }
 
 .link-dark {
   color: var(--basic-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--bg-dark-link-underline);
+  text-underline-position: under;
 }
 
 .link-dark:hover,
 .link-dark:focus,
 .link-dark:active {
   color: var(--hover-dark);
+  text-decoration-color: var(--bg-dark-link-underline-hover);
   outline: none;
 }
 
 .field-text__input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 13px 16px;
   font: inherit;
   font-weight: bold;
   color: var(--basic-dark);
@@ -246,11 +260,11 @@ img {
 }
 
 .nav__link {
+  position: relative;
   padding: 7px 14px;
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
-  color: var(--basic-white);
   border-radius: 26px;
 }
 
@@ -276,7 +290,7 @@ img {
 
 .dropdown__menu {
   position: absolute;
-  top: 24px;
+  top: 22px;
   right: 0;
   z-index: 2;
   display: none;
@@ -453,6 +467,7 @@ img {
   padding: 15px 25px;
   font-size: 18px;
   line-height: 16px;
+  text-shadow: none;
 }
 
 .login-form__link {
@@ -485,7 +500,7 @@ img {
   align-items: flex-end;
   width: 539px;
   height: auto;
-  padding: 18px 14px 23px 22px;
+  padding: 16px 14px 24px 21px;
   color: var(--basic-dark);
   background-color: var(--bg-form);
   border-radius: 4px;
@@ -502,11 +517,8 @@ img {
 
 .cart__item {
   display: flex;
-  align-items: center;
-}
-
-.cart__item {
-  margin-bottom: 17px;
+  align-items: baseline;
+  margin-bottom: 13px;
 }
 
 .cart__del-button {
@@ -515,6 +527,7 @@ img {
   width: 11px;
   height: 11px;
   margin-right: 10px;
+  background-color: transparent;
   background-image: url("../img/delete-btn.svg");
   background-repeat: no-repeat;
   border: none;
@@ -522,6 +535,7 @@ img {
 }
 
 .cart__item-img {
+  align-self: center;
   margin-right: 12px;
 }
 
@@ -537,6 +551,10 @@ img {
   color: var(--basic-black);
 }
 
+.cart__weight span {
+  color: var(--basic-extra-dark);
+}
+
 .cart__tolal {
   margin: 0;
   margin-bottom: 15px;
@@ -547,6 +565,7 @@ img {
 
 .cart__button {
   padding: 9px 15px;
+  text-shadow: none;
 }
 
 .header-contacts {
@@ -605,7 +624,6 @@ img {
   padding: 9px 40px;
   font-size: 32px;
   line-height: 44px;
-  text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
 }
 
 .slider__controls {
@@ -734,6 +752,7 @@ img {
   margin-top: 7px;
   padding: 10px 16px;
   cursor: pointer;
+  text-shadow: none;
 }
 
 .product:hover::after,
@@ -760,9 +779,18 @@ img {
   line-height: 22px;
   text-align: center;
   color: var(--basic-white);
-  text-decoration: underline;
 }
 
+.product__link {
+  text-decoration: none;
+  background-image: linear-gradient(transparent 18px, var(--bg-basic) 0);
+}
+
+.product__link:hover,
+.product__link:focus,
+.product__link:active {
+  background-image: linear-gradient(transparent 18px, var(--bg-link-underline-hover) 0);
+}
 
 .product__cost {
   position: absolute;
@@ -802,7 +830,7 @@ img {
 }
 
 .about__content {
-  padding: 23px 20px 28px;
+  padding: 23px 20px 30px;
   color: var(--basic-dark);
   background-color: var(--bg-about);
   background-image: url("../img/waffle-bg.jpg");
@@ -868,7 +896,7 @@ img {
 }
 
 .blog {
-  height: 220px;
+  min-height: 220px;
   padding: 18px 20px;
   background-color: var(--basic-white);
   background-image: url("../img/strawberry-bg.jpg");
@@ -877,22 +905,30 @@ img {
 
 .blog__title {
   margin: 0;
-  margin-bottom: 5px;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 23px;
   color: var(--basic-dark);
   font-weight: 500;
 }
 
-.blog__link {
-  display: inline-block;
-  margin: 0;
+.blog__news {
   max-width: 287px;
+}
+
+.blog__link {
+  margin: 0;
   vertical-align: top;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
-  text-decoration: underline;
+  text-decoration: none;
+  background-image: linear-gradient(transparent 28px, var(--bg-blog-underline) 0);
+}
+
+.blog__link:hover,
+.blog__link:focus,
+.blog__link:active {
+  background-image: linear-gradient(transparent 28px, var(--bg-dark-link-underline-hover) 0);
 }
 
 .subscription {
@@ -1004,7 +1040,7 @@ img {
 
 .contacts__address {
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
@@ -1051,8 +1087,8 @@ img {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 37px;
-  height: 37px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   background-repeat: no-repeat;
@@ -1473,7 +1509,7 @@ img {
 
 .pagination__link:hover:not(.pagination__link--current) {
   background-color: var(--bg-basic);
-  border-radius: 50%;
+  border-radius: 26px;
 }
 
 .pagination__link--current,
@@ -1482,7 +1518,7 @@ img {
   outline: none;
   color: var(--basic-dark);
   background-color: var(--basic-white);
-  border-radius: 50%;
+  border-radius: 26px;
 }
 
 .pagination__arrow--disabled {
@@ -1523,8 +1559,8 @@ img {
 
 .modal__close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 14px;
+  right: 16px;
   width: 18px;
   height: 17px;
   background-color: transparent;
@@ -1539,7 +1575,7 @@ img {
   top: 10px;
   left: 0;
   width: 20px;
-  height: 3px;
+  height: 2px;
   background-color: var(--bg-modal-close);
 }
 
@@ -1633,7 +1669,6 @@ img {
   0%,
   100% {
     transform: translateX(0);
-    transform: translateY(-50%);
   }
 
   10%,
