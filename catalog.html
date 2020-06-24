@@ -14,7 +14,7 @@
     <div class="container">
       <div class="header__top">
         <div class="header__logo">
-          <a class="logo-link" href="index.html">
+          <a class="logo-link" href="index.html" aria-label="Переход на главную страницу">
             <img src="img/logo.svg" width="154" height="64" alt="Логотип Глейси">
           </a>
         </div>
@@ -139,12 +139,13 @@
         <form class="filters__form" action="https://echo.htmlacademy.ru" method="get">
           <fieldset class="filters__item select">
             <legend class="filters__name">Сортировка:</legend>
-            <select class="filters__bg select__controls" name="sorting">
+            <select class="filters__bg select__controls" name="sorting" id="sorting">
               <option class="select__item" value="popular">по популярности</option>
               <option class="select__item" value="low price">сначала недорогие</option>
               <option class="select__item" value="high price">сначала дорогие</option>
               <option class="select__item" value="fat">по жирности</option>
             </select>
+            <label class="visually-hidden" for="sorting">Сортировка мороженого</label>
           </fieldset>
           <fieldset class="filters__item range">
             <legend class="filters__name">Цена: 100 ₽ – 500 ₽</legend>
@@ -160,32 +161,20 @@
             <legend class="filters__name">Жирность:</legend>
             <div class="filters__bg radiobuttons__controls">
               <div class="option radiobuttons__option">
-                <label class="option__label radiobuttons__label">
-                  <input class="option__input" type="radio" name="fat" value="0%">
-                  <span class="option__radio"></span>
-                  0%
-                </label>
+                <input class="option__input" type="radio" name="fat" value="0%" id="0%">
+                <label class="option__label radiobuttons__label" for="0%">0%</label>
               </div>
               <div class="option radiobuttons__option">
-                <label class="option__label  radiobuttons__label">
-                  <input class="option__input" type="radio" name="fat" value="до 10%" checked>
-                  <span class="option__radio"></span>
-                  до 10%
-                </label>
+                <input class="option__input" type="radio" name="fat" value="до 10%" id="to 10%" checked>
+                <label class="option__label radiobuttons__label" for="to 10%">до 10%</label>
               </div>
               <div class="option radiobuttons__option">
-                <label class="option__label radiobuttons__label">
-                  <input class="option__input" type="radio" name="fat" value="до 30%">
-                  <span class="option__radio"></span>
-                  до 30%
-                </label>
+                <input class="option__input" type="radio" name="fat" value="до 30%" id="to 30%" disabled>
+                <label class="option__label radiobuttons__label" for="to 30%">до 30%</label>
               </div>
               <div class="option  radiobuttons__option">
-                <label class="option__label radiobuttons__label">
-                  <input class="option__input" type="radio" name="fat" value="выше 30%">
-                  <span class="option__radio"></span>
-                  выше 30%
-                </label>
+                  <input class="option__input" type="radio" name="fat" value="выше 30%" id="above 30%">
+                <label class="option__label radiobuttons__label" for="above 30%">выше 30%</label>
               </div>
             </div>
           </fieldset>
@@ -193,38 +182,24 @@
             <legend class="filters__name">Наполнители:</legend>
             <div class="filters__bg checkbox__controls">
               <div class="option checkbox__option">
-                <label class="option__label checkbox__label">
-                  <input type="checkbox" class="option__input" name="chocolate" checked>
-                  <span class="option__checkbox"></span>шоколадные
-                </label>
+                <input type="checkbox" class="option__input" name="chocolate" id="chocolate" checked>
+                <label class="option__label checkbox__label" for="chocolate">шоколадные</label>
               </div>
               <div class="option checkbox__option">
-                <label class="option__label checkbox__label">
-                  <input type="checkbox" class="option__input" name="sugar" checked>
-                  <span class="option__checkbox"></span>
-                  сахарные присыпки
-                </label>
+                <input type="checkbox" class="option__input" name="sugar" id="sugar" checked>
+                <label class="option__label checkbox__label" for="sugar">сахарные присыпки</label>
               </div>
               <div class="option checkbox__option">
-                <label class="option__label checkbox__label">
-                  <input type="checkbox" class="option__input" name="fruit">
-                  <span class="option__checkbox"></span>
-                  фрукты
-                </label>
+                <input type="checkbox" class="option__input" name="fruit" id="fruit">
+                <label class="option__label checkbox__label" for="fruit">фрукты</label>
               </div>
               <div class="option checkbox__option">
-                <label class="option__label checkbox__label">
-                  <input type="checkbox" class="option__input" name="syrop">
-                  <span class="option__checkbox"></span>
-                  сиропы
-                </label>
+                <input type="checkbox" class="option__input" name="syrop" id="syrop">
+                <label class="option__label checkbox__label" for="syrop">сиропы</label>
               </div>
               <div class="option checkbox__option">
-                <label class="option__label checkbox__label">
-                  <input type="checkbox" class="option__input">
-                  <span class="option__checkbox"></span>
-                  джемы
-                </label>
+                <input type="checkbox" class="option__input" name="jam" id="jam">
+                <label class="option__label checkbox__label" for="jam">джемы</label>
               </div>
             </div>
           </fieldset>
@@ -356,13 +331,13 @@
       </section>
       <section class="pagination" aria-label="Пагинация">
         <div class="pagination__wrapper">
-          <a class="pagination__arrow pagination__arrow--disabled" href="">Назад</a>
+          <a class="pagination__arrow pagination__arrow--disabled" href="" aria-label="Перейти на предыдущую страницу каталога">Назад</a>
           <a class="pagination__link pagination__link--current">1</a>
-          <a class="pagination__link" href="#">2</a>
-          <a class="pagination__link" href="#">3</a>
-          <a class="pagination__link" href="#">4</a>
-          <a class="pagination__link" href="#">5</a>
-          <a class="pagination__arrow" href="">Вперед</a>
+          <a class="pagination__link" href="#" aria-label="Перейти на вторую страницу каталога">2</a>
+          <a class="pagination__link" href="#" aria-label="Перейти на третью страницу каталога">3</a>
+          <a class="pagination__link" href="#" aria-label="Перейти на четвертую страницу каталога">4</a>
+          <a class="pagination__link" href="#" aria-label="Перейти на пятую страницу каталога">5</a>
+          <a class="pagination__arrow" href="" aria-label="Перейти на следующую страницу каталога">Вперед</a>
         </div>
       </section>
     </div>
